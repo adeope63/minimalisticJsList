@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul class="list"></ul>
+    <input type="text" class="taskInput" />
+    <button onclick="addTask()">Add Task</button>
+
+    <script>
+      const Task = document.querySelector(".taskInput");
+      let list = document.querySelector(".list");
+
+      let taskValue = ["task1", "task2", "task3"];
+
+      function continued() {
+        if (Task.value != 0) {
+          list.innerHTML += `<li>${taskValue.slice(-1)}</li>`;
+          Task.value = "";
+        }
+      }
+
+      function addTask() {
+        taskValue.push(Task.value);
+        continued();
+      }
+
+      function show() {
+        for (i in taskValue) {
+          list.innerHTML += `<li>${taskValue[i]}</li>`;
+        }
+      }
+      show();
+    </script>
+  </body>
+</html>
